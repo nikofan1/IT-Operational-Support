@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>IT Operations &amp; Support – Overview + Roles</title>
+<style>
+    :root {
+      --bg: #f8f9fa;
+      --text: #212529;
+      --primary: #007bff;
+      --secondary: #6f42c1;
+      --success: #28a745;
+      --danger: #dc3545;
+      --warning: #ffc107;
+      --info: #17a2b8;
+      --light: #e9ecef;
+      --dark: #343a40;
+      --card: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.5;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 48px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: clamp(1.8rem, 2.8vw + 1rem, 3rem);
+      letter-spacing: .3px;
+    }
+
+    header p {
+      font-size: 1.05rem;
+      margin-top: 10px;
+      opacity: .95;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--dark);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 4px;
+      padding: 6px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 14px;
+      display: block;
+      border-radius: 8px;
+      transition: background 0.25s ease;
+      font-weight: 600;
+      font-size: .95rem;
+    }
+    nav a:hover, nav a.active {
+      background: color-mix(in srgb, var(--primary) 70%, black 0%);
+    }
+
+    main { padding: 18px; }
+
+    section {
+      padding: 28px 20px;
+      margin: 16px auto 22px;
+      max-width: 980px;
+      border-radius: 14px;
+      background: var(--card);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      border: 1px solid #e6e6e6;
+    }
+
+    #what { background: #ffeef0; }
+    #role { background: #eaf5ff; }
+    #daily { background: #eaffea; }
+    #tools { background: #fff6e0; }
+    #jobs  { background: #f1f0ff; }
+
+    h2 {
+      margin-top: 0;
+      color: var(--dark);
+      font-size: 1.6rem;
+    }
+
+    ul { margin: 0; padding-left: 22px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: 14px;
+    }
+    @media (min-width: 720px) {
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (min-width: 1040px) {
+      .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e6e6e6;
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,.04);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .card h3 { margin: 0; font-size: 1.15rem; }
+    .badge {
+      display: inline-block;
+      font-size: .85rem;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: #eef2ff;
+      border: 1px solid #dcd8ff;
+      color: #4b3fb8;
+      font-weight: 700;
+    }
+    details { margin-top: 6px; }
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .meta { font-size: .92rem; opacity: .85; }
+
+    footer {
+      background: var(--secondary);
+      color: white;
+      text-align: center;
+      padding: 18px;
+      margin-top: 30px;
+    }
+
+    .to-top {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      background: var(--info);
+      color: white;
+      border-radius: 999px;
+      padding: 10px 14px;
+      text-decoration: none;
+      font-size: 1.05rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.16);
+    }
+    .to-top:hover { background: var(--primary); }
+  </style>
+<style>
+      font-family: Arial, sans-serif;
+      background: #f7f9fc;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+#quiz .quiz-container {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      width: 90%;
+      max-width: 700px;
+      padding: 20px;
+    }
+#quiz h1 {
+      text-align: center;
+      color: #333;
+    }
+#quiz #question {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+#quiz .btn {
+      display: block;
+      width: 100%;
+      margin: 8px 0;
+      padding: 12px;
+      background: #e9ecef;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 1rem;
+    }
+#quiz .btn:hover {
+      background: #dee2e6;
+    }
+#quiz .correct {
+      background: #28a745 !important;
+      color: #fff;
+    }
+#quiz .incorrect {
+      background: #dc3545 !important;
+      color: #fff;
+    }
+#quiz #next-btn {
+      margin-top: 20px;
+      display: none;
+      padding: 12px 20px;
+      font-size: 1rem;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+#quiz #next-btn:hover {
+      background: #0056b3;
+    }
+  </style><style>
+/* Interviews section specific light styles */
+#interviews .interview-card { display: block; }
+#interviews .interview-meta { font-size: .92rem; opacity: .85; margin: 6px 0 10px; }
+#interviews .small-list { margin: 0; padding-left: 22px; }
+#interviews, #takeaways { background: #fffef5; }
+#takeaways .card { background: white; }
+
+</style></head>
+<body>
+<a id="top"></a>
+<header>
+<h1>Operational &amp; Support in IT</h1>
+<p>The backbone of an organization’s technology</p>
+</header>
+<nav>
+<a href="#what">What Is This Field?</a>
+<a href="#role">Role in Organizations</a>
+<a href="#daily">Responsibilities</a>
+<a href="#tools">Key Tools</a>
+<a href="#jobs">Jobs &amp; Career Paths</a>
+<a href="#interviews">Interviews</a><a href="#takeaways">Takeaways</a><a href="#quiz">Quiz</a></nav>
+<main>
+<section id="what">
+<h2>What Is This IT Field?</h2>
+<p>This field covers the management, maintenance, and support of tech devices and systems that organizations use every day. The main goal is to ensure businesses run smoothly without disruption.</p>
+</section>
+<section id="role">
+<h2>Explain Its Role in Organizations</h2>
+<p>IT Operations &amp; Support serves as the backbone of an organization's technology. They are the behind-the-scenes team that keeps all computers, systems, and devices working properly.</p>
+</section>
+<section id="daily">
+<h2>Typical Responsibilities &amp; Daily Activities</h2>
+<ul>
+<li>Answering support requests</li>
+<li>Fixing computer or software issues</li>
+<li>Setting up/managing devices for employees</li>
+<li>Monitoring systems to catch problems early</li>
+<li>Running backups to protect data</li>
+</ul>
+</section>
+<section id="tools">
+<h2>Identify Key Technologies &amp; Tools Used</h2>
+<ul>
+<li>Help desk ticketing systems</li>
+<li>Customer relationship management software</li>
+<li>Live chat software</li>
+<li>Call center software</li>
+</ul>
+</section>
+<section id="jobs">
+<h2>Jobs &amp; Career Paths</h2>
+<div class="grid">
+<article class="card">
+<h3>County of LA IT Support Analyst</h3>
+<span class="badge">Entry level</span>
+<div class="meta">57–75k/year</div>
+<details>
+<summary>Key requirements</summary>
+<ul>
+<li>Hardware/software installation &amp; repair</li>
+<li>1 year experience with client devices/software</li>
+<li>Class C driver’s license</li>
+<li>Lifting 10–25 lbs regularly; 25+ lbs occasionally</li>
+<li>Help desk knowledge (Microsoft Office, networking, peripherals)</li>
+<li>Contact center skills: tactful problem solving, accurate data entry, service orientation</li>
+<li>Strengths: reasoning, independence, reliability, optimism</li>
+</ul>
+</details>
+</article>
+<article class="card">
+<h3>Help Desk Technician</h3>
+<span class="badge">Entry level</span>
+<div class="meta">70–80k/year</div>
+<details>
+<summary>Key requirements</summary>
+<ul>
+<li>1–3 years corporate IT helpdesk experience</li>
+<li>Windows/Mac management; Google Workspace, Slack, Atlassian, MDM</li>
+<li>Remote support (e.g., ConnectWise)</li>
+<li>AV solutions (Google Meet, Zoom Rooms)</li>
+<li>Hybrid cloud/on‑prem/SaaS familiarity</li>
+<li>Change &amp; ticket management; documentation</li>
+<li>Networking basics: VPN, DNS, DHCP</li>
+<li>High attention to detail</li>
+</ul>
+</details>
+</article>
+<article class="card">
+<h3>IT Support Specialist</h3>
+<span class="badge">Mid level</span>
+<div class="meta">110–130k/year</div>
+<details>
+<summary>Key requirements</summary>
+<ul>
+<li>Microsoft Entra ID, SharePoint Online, Microsoft 365</li>
+<li>A/V platforms; enterprise device management</li>
+<li>AI‑powered tools; strong end‑user advocacy</li>
+<li>Troubleshooting across desktop, laptop, mobile &amp; apps</li>
+<li>On/Off‑boarding; asset &amp; inventory maintenance</li>
+<li>Active Directory &amp; Group Policy; MDM &amp; ITSM platforms</li>
+<li>Certs: CompTIA A+/Network+, ITIL, M365/Entra</li>
+<li>3–5 years enterprise IT support; white‑glove support; leadership potential</li>
+</ul>
+</details>
+</article>
+<article class="card">
+<h3>IT Operations Manager</h3>
+<span class="badge">Mid level</span>
+<div class="meta">105–130k/year</div>
+<details>
+<summary>Key requirements</summary>
+<ul>
+<li>Networking, security infrastructure, and cloud (AWS/GCP/Azure)</li>
+<li>Vendor management &amp; contract negotiation</li>
+<li>Translate business needs into technical solutions</li>
+<li>7+ years IT ops; 1+ years managing distributed teams</li>
+</ul>
+</details>
+</article>
+<article class="card">
+<h3>Director of IT Engineering</h3>
+<span class="badge">Senior level</span>
+<div class="meta">111k–221k/year</div>
+<details>
+<summary>Key requirements</summary>
+<ul>
+<li>Bachelor’s degree; 8–13 years operations‑related experience</li>
+<li>Service delivery principles; staff &amp; infrastructure management</li>
+<li>Plan acquisition/expansion of technology infrastructure</li>
+<li>Strong written &amp; verbal communication</li>
+<li>Application development lifecycle &amp; IT concepts familiarity</li>
+</ul>
+</details>
+</article>
+</div>
+</section>
+<!-- Interviews Section -->
+<section id="interviews">
+  <h2>Professional Interviews </h2>
+  <p>Two interviews with IT professionals </p>
+
+  <div class="grid" style="margin-top:12px;">
+    <!-- Logan -->
+    <article class="card interview-card">
+      <h3>Logan Pellerano (Age 26)</h3>
+      <div class="interview-meta">Organization:Nagarro  Role: IT Operations &amp; Support  Experience: 3 – 4 years</div>
+
+      <strong>Career Journey</strong>
+      <ul class="small-list">
+        <li>Early interest in computers, built PCs, studied CIS in college</li>
+        <li>First IT job: system checks at the Bronx Zoo (AV, exhibit panels)</li>
+        <li>Completed post-college tech certifications that helped land his role</li>
+      </ul>
+
+      <strong>Daily Work / Tools</strong>
+      <ul class="small-list">
+        <li>Common tasks: password resets, account access, printer support</li>
+        <li>Tools used: Avaya (calls), ServiceNow (tickets), ISIM, IBM Security Verify</li>
+      </ul>
+
+      <strong>Challenges &amp; Rewards</strong>
+      <ul class="small-list">
+        <li>Challenge: encountering unfamiliar issues that require creative troubleshooting</li>
+        <li>Reward: helping frustrated users and learning from complex problems</li>
+      </ul>
+
+      <strong>Advice</strong>
+      <ul class="small-list">
+        <li>Get certifications (Google IT, CompTIA A+); pursue area-focused certs (Cisco for networking)</li>
+        <li>Employers look for confidence, communication, critical thinking, and organization</li>
+      </ul>
+
+      
+
+    </article>
+
+    <!-- Frank -->
+    <article class="card interview-card">
+      <h3>Frank Guerra (Age 44)</h3>
+      <div class="interview-meta"> Organization: The Dominguez Firm  Role: System Administrator  Experience: 15+ years</div>
+
+      <strong>Career Journey</strong>
+      <ul class="small-list">
+        <li>Started in helpdesk after switching careers; progressed from Helpdesk I → Tier 2 → Supervisor → System Admin</li>
+        <li>Training includes Microsoft, Trend Micro, Palo Alto, VMWare, Cisco, Azure and app-specific certs</li>
+      </ul>
+
+      <strong>Daily Work / Tools</strong>
+      <ul class="small-list">
+        <li>Handles ~20–30 tickets/daily, mixing helpdesk and sysadmin tasks</li>
+        <li>Tools: Microsoft 365 Security, Litify (case management), Zendesk, Outlook notifications</li>
+      </ul>
+
+      <strong>Challenges &amp; Rewards</strong>
+      <ul class="small-list">
+        <li>Challenge: managing varied user personalities and high email/alert volume</li>
+        <li>Reward: continuous learning — example: enabled remote work during pandemic (VPN, USB Wi-Fi adapters, RingCentral)</li>
+      </ul>
+
+      <strong>Advice</strong>
+      <ul class="small-list">
+        <li>Network, take internships, and pursue certs (M365/Azure, CompTIA A+/Network+/Cloud+)</li>
+        <li>Employers value quick learners, communication, adaptability, and teamwork</li>
+      </ul>
+
+      
+    </article>
+  </div>
+</section>
+
+<!-- NEW: Common Takeaways Section -->
+<section id="takeaways">
+  <h2>Common Takeaways</h2>
+
+  <div class="card">
+    <h3>Summary</h3>
+    <ul>
+      <li><strong>Certifications and hands-on experience</strong> are crucial for entry and growth (Google IT, CompTIA, Microsoft, Cisco).</li>
+      <li><strong>Soft skills</strong> (communication, patience, teamwork) are as important as technical skills when supporting users.</li>
+      <li><strong>Problem-solving</strong> and the ability to ask good diagnostic questions (probing) shorten resolution time.</li>
+      <li><strong>Tools &amp; platforms</strong>: ticketing systems (ServiceNow/Zendesk), VoIP (Avaya/RingCentral), identity tools (ISIM, IBM Verify).</li>
+      <li><strong>AI &amp; automation</strong> are likely to change workflows; people who adapt and learn will benefit.</li>
+    </ul>
+
+    <h3 style="margin-top:10px;">Slide-friendly Quote Options</h3>
+    <ul>
+      <li>“Sometimes an issue that seems large is actually a simple fix — probing is key.”  Logan</li>
+      <li>“Organizing your Outlook and prioritizing is a practical skill that sets you apart.”  Frank</li>
+    </ul>
+  </div>
+</section>
+<section class="quiz-section" id="quiz" style=""><h2>Interactive Quiz</h2><p>Test your knowledge with this short quiz on IT Operations &amp; Support.</p><div class="quiz-container">
+<h1>IT Operations &amp; Support Quiz</h1>
+<div id="question">Question text</div>
+<div id="answer-buttons"></div>
+<button id="next-btn">Next</button>
+</div></section></main>
+<footer>
+<p>© <span id="year"></span> IT Operations &amp; Support Overview</p>
+</footer>
+<a class="to-top" href="#top">↑ Top</a>
+<script>
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Scrollspy: highlight active section
+    const sections = Array.from(document.querySelectorAll('section[id]'));
+    const navLinks = Array.from(document.querySelectorAll('nav a'));
+    const setActive = (hash) => navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === hash));
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const hash = `#${entry.target.id}`;
+          setActive(hash);
+          if (history.replaceState) history.replaceState(null, '', hash);
+        }
+      });
+    }, { rootMargin: '-40% 0px -50% 0px', threshold: 0.01 });
+
+    sections.forEach(s => observer.observe(s));
+  </script>
+<script>
+    const questions = [
+      {
+        question: "What is the main purpose of Operations in an organization?", 
+        answers: [
+          { text: "To develop new markets", correct: false},
+          { text: "To maintain and improve daily business processes", correct: true},
+          { text: "To innovate new products", correct: false},
+          { text: "To manage financial investments", correct: false},
+        ]
+      },
+      {
+        question: "Which of the following is a primary function of Support teams?", 
+        answers: [
+          { text: "Strategic planning", correct: false},
+          { text: "Customer issue resolution and service continuity", correct: true},
+          { text: "Product development", correct: false},
+          { text: "Project Management", correct: false},
+        ]
+      },
+      {
+        question: "Which tool is MOST commonly used in IT support operations?", 
+        answers: [
+          { text: "Kali Linux", correct: false},
+          { text: "Power BI", correct: false},
+          { text: "Excel", correct: false},
+          { text: "Help Desk Ticketing System", correct: true},
+        ]
+      },
+      {
+        question: "Which of the following are daily responsibilities and activities of IT Operations and Support?", 
+        answers: [
+          { text: "Obtaining technology services and products for organization", correct: false},
+          { text: "Collecting, cleaning, and organizing data", correct: false},
+          { text: "Training employees, vulnerability testing, updating patches", correct: false},
+          { text: "Answering support requests, running data backups, setting up employee devices", correct: true},
+        ]
+      },
+      {
+        question: "IT support technicians optimize network performance and proactively monitor equipment for failure or insufficiency?", 
+        answers: [
+          { text: "True", correct: true},
+          { text: "False", correct: false},
+        ]
+      },
+      {
+        question: "What is the difference between IT support and IT operations??", 
+        answers: [
+          { text: "IT support handles day-to-day issues, IT operations oversees infrastructure and supports long-term organizational objectives", correct: true},
+          { text: "IT support is proactive while IT operations is reactive", correct: false},
+          { text: "IT support has higher access privileges than IT operations", correct: false},
+          { text: "IT support requires less direct user help than IT operations", correct: false},
+        ]
+      },
+      {
+        question: "True or False: Does every business need IT support?", 
+        answers: [
+          { text: "True", correct: true},
+          { text: "False", correct: false},
+        ]
+      },
+      {
+        question: "True or False: You only need IT support when things go wrong?", 
+        answers: [
+          { text: "True", correct: false},
+          { text: "False", correct: true},
+        ]
+      },
+      {
+        question: "What are some different parts of IT operations?", 
+        answers: [
+          { text: "Infrastructure management, data management, network monitoring, system administration", correct: true},
+          { text: "Designing, coding, testing, maintaining software", correct: false},
+          { text: "Collecting, organizing, processing, and analyzing raw data", correct: false},
+          { text: "Assessing technologies and services, ensuring compliance with regulations/standards, and obtaining necessary technologies and products", correct: false},
+        ]
+      },
+      {
+        question: "What is a helpdesk in regards to IT support?", 
+        answers: [
+          { text: "Centralized organizational support service that assists end users by providing solutions, troubleshooting, and technical assistance", correct: true},
+          { text: "A location where physical hardware and infrastructure are stored", correct: false},
+          { text: "An overarching framework that governs how IT services are coordinated and optimizes IT services delivery", correct: false},
+          { text: "None of the above", correct: false},
+        ]
+      }  
+    ];
+
+    const questionElement = document.getElementById("question");
+    const answerButtons = document.getElementById("answer-buttons");
+    const nextButton = document.getElementById("next-btn");
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    function startQuiz(){
+      currentQuestionIndex = 0;
+      score = 0;
+      nextButton.innerHTML = "Next";
+      showQuestion();
+    }
+
+    function showQuestion(){
+      resetState();
+      let currentQuestion = questions[currentQuestionIndex];
+      let questionNo = currentQuestionIndex + 1;
+      questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
+
+      currentQuestion.answers.forEach(answer => {
+        const button = document.createElement("button");
+        button.innerHTML = answer.text;
+        button.classList.add("btn");
+        answerButtons.appendChild(button);
+        if(answer.correct){
+          button.dataset.correct = answer.correct;
+        }
+        button.addEventListener("click", selectAnswer);
+      });
+    }
+
+    function resetState(){
+      nextButton.style.display = "none";
+      while(answerButtons.firstChild){
+        answerButtons.removeChild(answerButtons.firstChild);
+      }
+    }
+
+    function selectAnswer(e){
+      const selectedBtn = e.target;
+      const isCorrect = selectedBtn.dataset.correct === "true";
+      if(isCorrect){
+        selectedBtn.classList.add("correct");
+        score++;
+      }else{
+        selectedBtn.classList.add("incorrect");
+      }
+      Array.from(answerButtons.children).forEach(button => {
+        if(button.dataset.correct === "true"){
+          button.classList.add("correct");
+        }
+        button.disabled = true;
+      });
+      nextButton.style.display = "block";
+    }
+
+    function showScore(){
+      resetState();
+      questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+      nextButton.innerHTML = "Play Again";
+      nextButton.style.display = "block";
+    }
+
+    function handleNextButton(){
+      currentQuestionIndex++;
+      if(currentQuestionIndex < questions.length){
+        showQuestion();
+      }else{
+        showScore();
+      }
+    }
+
+    nextButton.addEventListener("click", ()=>{
+      if(currentQuestionIndex < questions.length){
+        handleNextButton();
+      }else{
+        startQuiz();
+      }
+    });
+
+    startQuiz();
+  </script></body>
+</html>
